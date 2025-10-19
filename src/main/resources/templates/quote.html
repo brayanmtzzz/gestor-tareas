@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: layout(pageTitle=${pageTitle}, content=~{:: #quote-content-wrapper})}">
+
+<body>
+    <div id="quote-content-wrapper">
+        <h1><i class="fas fa-lightbulb"></i> Frase Inspiradora del Día</h1>
+
+        <div class="quote-card" th:if="${quote}">
+            <p class="quote-text" th:text="'“' + ${quote.q} + '”'"></p>
+            <p class="quote-author" th:text="'- ' + ${quote.a}">- Autor</p>
+        </div>
+        <div class="quote-card" th:unless="${quote}">
+            <p class="quote-text">No se pudo cargar la frase.</p>
+        </div>
+    </div>
+</body>
+</html>

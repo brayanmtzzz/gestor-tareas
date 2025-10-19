@@ -5,15 +5,19 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
+import java.time.LocalDateTime;
 
 @Entity
-@Data // Anotación de Lombok para generar getters, setters, etc.
+@Data
 public class Task {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id; // Identificador único
+    private Long id;
 
-    private String title; // Título de la tarea
-    private boolean completed = false; // Estado de la tarea
+    private String title;
+    private String description;
+    private boolean completed = false;
+    private LocalDateTime createdAt;
+
 }
